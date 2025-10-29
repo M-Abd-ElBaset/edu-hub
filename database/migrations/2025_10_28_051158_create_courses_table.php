@@ -25,6 +25,7 @@ return new class extends Migration
             $table->json('requirements')->nullable();
             $table->json('learning_outcomes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
 
             $table->index('instructor_id');
             $table->index(['category_id', 'difficulty']);

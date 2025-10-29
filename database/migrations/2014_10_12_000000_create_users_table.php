@@ -21,7 +21,8 @@ return new class extends Migration
             $table->json('achievements')->nullable();
             $table->rememberToken(); 
             $table->timestamps();
-            
+            $table->softDeletes();
+
             $table->index('role');
         });
     }
