@@ -17,8 +17,12 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->enum('role', ['student', 'instructor', 'admin'])->default('student');
+            $table->json('achievements')->nullable();
+            $table->rememberToken(); 
             $table->timestamps();
+            
+            $table->index('role');
         });
     }
 
