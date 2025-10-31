@@ -83,3 +83,18 @@ EduHub is a backend API for managing courses, lessons, enrollments, and progress
    php artisan serve
    ```
 
+# 📡 Api Endpoints
+---
+Method        Endpoint                                        Description
+---
+POST          /api/courses/{id}/enroll                        Enroll in a course
+---
+GET           /api/courses/{id}/progress                      Get user progress in a course
+---
+GET           /api/users/{id}/courses                         List user’s enrolled courses
+---
+POST          /api/lessons/{id}/complete                      Mark lesson as completed
+---
+GET           /api/courses?filter[category]=programming
+                &sort=-created_at                             Filter/sort courses
+---
