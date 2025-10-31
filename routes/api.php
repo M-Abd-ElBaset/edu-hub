@@ -25,6 +25,8 @@ Route::middleware(['auth.jwt', 'throttle:100,1'])->group(function () {
     Route::post('/courses/{id}/enroll', [CourseController::class, 'enroll']);
     Route::get('/courses', [CourseController::class, 'index']);
     Route::get('/courses/{id}/progress', [CourseController::class, 'progress']);
-
+    
     Route::get('/users/{id}/courses', [UserController::class, 'courses']);
+    
+    Route::post('/lessons/{id}/complete', [CourseController::class, 'complete']);
 });
