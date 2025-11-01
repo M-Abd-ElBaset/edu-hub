@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Cache;
 
 class UserRepository
 {
-    public function getUserCourses(User $user): Builder
+    public function getUserCourses(User $user)
     {
         $cacheKey = $this->buildCacheKey($user);
 
         return Cache::remember($cacheKey, 3600, function () use ($user) {
-            return $this->buildQuery($user);
+            return $this->buildQuery($user)->paginate(15);
         });
     }
 

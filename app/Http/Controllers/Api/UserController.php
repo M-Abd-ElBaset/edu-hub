@@ -19,7 +19,7 @@ class UserController extends Controller
         $courses = $this->userRepo->getUserCourses($user);
 
         $data = [
-            'courses' => CourseResource::collection($courses->paginate(15))
+            'courses' => CourseResource::collection($courses)
         ];
         return response()->json(['data' => $data], Response::HTTP_OK);
     }
