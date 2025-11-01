@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\CourseController;
+use App\Http\Controllers\Api\LessonController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,5 +36,5 @@ Route::middleware(['auth.jwt', 'throttle:100,1'])->group(function () {
 
     Route::get('/users/{user}/courses', [UserController::class, 'courses']);
 
-    Route::post('/lessons/{lesson}/complete', [CourseController::class, 'complete']);
+    Route::post('/lessons/{lesson}/complete', [LessonController::class, 'complete']);
 });

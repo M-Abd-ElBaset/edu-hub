@@ -61,6 +61,10 @@ class ProgressService
             ->where('order', '<', $lesson->order)
             ->orderBy('order', 'desc')
             ->first();
+            
+        if(!$previousLesson) {
+            return true; // No previous lesson means this is the first lesson
+        }
 
         return $user->progress()
             ->where('lesson_id', $previousLesson->id ?? 0)
