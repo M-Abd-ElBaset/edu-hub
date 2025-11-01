@@ -27,7 +27,7 @@ class CourseController extends Controller
     {
         $courses = $this->courseRepo->getFilteredCourses($request);
 
-        return CourseResource::collection($courses->paginate(15));
+        return CourseResource::collection($courses);
     }
 
      public function enroll(Course $course, EnrollRequest $request): JsonResponse

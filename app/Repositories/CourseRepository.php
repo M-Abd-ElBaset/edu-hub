@@ -9,12 +9,12 @@ use Illuminate\Support\Facades\Cache;
 
 class CourseRepository
 {
-    public function getFilteredCourses(Request $request): Builder
+    public function getFilteredCourses(Request $request)
     {
         $cacheKey = $this->buildCacheKey($request);
         
         return Cache::remember($cacheKey, 3600, function () use ($request) {
-            return $this->buildQuery($request);
+            return $this->buildQuery($request)->paginate(15);
         });
     }
 
